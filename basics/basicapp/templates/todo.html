@@ -1,0 +1,26 @@
+<!-- basicapp/templates/todo.html -->
+{% extends 'base.html' %}
+
+{% block title %}Todo - {{ block.super }}{% endblock %}
+
+{% block content %}
+    <h2>Todo List</h2>
+
+    <h3>Not Completed</h3>
+    <ul>
+        {% for todo in todos %}
+            {% if not todo.completed %}
+                <li>{{ todo.title }} (Created on: {{ todo.created }})</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h3>Completed</h3>
+    <ul>
+        {% for todo in todos %}
+            {% if todo.completed %}
+                <li>{{ todo.title }} (Created on: {{ todo.created }})</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}

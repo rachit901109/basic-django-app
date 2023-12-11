@@ -1,0 +1,53 @@
+<!-- basicapp/templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-TMk2OsA4tLPQ8JrGVZ08fPuTAISyxNl9K54QxGpNMy8dtwoeP0U9eCcKGDBraC3" crossorigin="anonymous">
+    <title>{% block title %}My Django App{% endblock %}</title>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">My Django App</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'todo' %}">Todo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-dark text-white">
+        <div class="container text-center">
+            <p>&copy; 2023 My Django App</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1ZlR5g5Zl5lguELikpgpAMMlMBoZl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js" integrity="sha384-9oF9G0Kn3SBo6y+Jjko1U9a/FanX0iU8fFJ6BKeen6l8oVzbePZMSA+xsiDz2b+A" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyowThG5eE2h4u7qR5r5lESKkisv8BAUKy" crossorigin="anonymous"></script>
+</body>
+</html>

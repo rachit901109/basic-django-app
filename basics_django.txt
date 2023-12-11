@@ -1,0 +1,51 @@
+Django - Projects
+A Django project is the overall container for your web application.
+It is the top-level organizational unit that encompasses all the settings, configurations, and components required for your web application.
+A project can consist of multiple applications, each serving a specific purpose or functionality.
+
+django-admin startproject <projectname>
+Django will generate the basic structure and files needed for a new project with the specified name.
+The generated project will include settings.py, url.py, asgi.py and wsgi.py as well as a manage.py script that can be used to manage various aspects of the project.
+
+- settings.py: This file contains the configuration settings for your Django project. It includes database settings, middleware, installed apps, static files configuration, and more. This is a crucial file where you define various parameters that control the behavior of your Django project.
+
+- urls.py: This file is used to define the URL patterns for your project. It is where you map URLs to views, specifying which view function should be called for a particular URL. The urls.py file helps Django route incoming requests to the appropriate parts of your application.
+
+- asgi.py (Asynchronous Server Gateway Interface): This file is used to configure your project for Asynchronous support. ASGI is a specification for asynchronous web servers to communicate with web applications. It allows handling more concurrent connections compared to traditional synchronous servers. This file is used when deploying your Django project with an ASGI server, such as Daphne.
+
+- wsgi.py (Web Server Gateway Interface): This file is used to configure your project for deployment on a WSGI server. WSGI is a standard interface between web servers and Python web applications. It is used for running Django applications on production servers like Apache or Nginx.
+
+- manage.py: This script is a command-line utility that allows you to interact with your Django project in various ways. You can use it to run development servers, create database tables, perform migrations, and more. For example, you might use python manage.py runserver to start the development server, or python manage.py migrate to apply database migrations.
+
+In summary:
+settings.py: Configuration settings for your Django project.
+urls.py: URL patterns and routing configuration.
+asgi.py: Configuration for Asynchronous Server Gateway Interface.
+wsgi.py: Configuration for Web Server Gateway Interface.
+manage.py: Command-line utility for managing various aspects of your Django project.
+
+
+Django - Applications
+A Django application is a self-contained module that performs a specific task within the project.
+Applications are designed to be reusable and can be plugged into different projects.
+An application can include models, views, templates, static files, and other components related to a specific functionality.
+
+cd proj_dir
+python manage.py startapp <appname>
+After above command Django will create a directory structure for your application. 
+Including admin.py, apps.py, models.py, test.py, views.py and migrations dir
+
+- admin.py: file is used for configuring the Django admin interface for your application. You can register your models with the admin site here, allowing you to manage them through the Django admin.
+
+- apps.py: file is used for application-specific configuration. You can define application-level configurations and signals in this file.
+
+- models.py: file is where you define the data models for your application. Django models represent database tables and allow you to interact with the database using Python code.
+
+- tests.py: file is where you can write tests for your application. You can use Django's testing framework to write unit tests, integration tests, and more.
+
+- views.py file is where you define the views for your application. Views handle requests, process data, and return HTTP responses. Views can be function-based or class-based, and they play a crucial role in processing user requests.
+
+- migrations/: When you define models in models.py or make changes to existing models, you use migrations to propagate those changes to the database. The makemigrations command creates migration files based on changes to your models, and the migrate command applies those changes to the database.
+
+** Open the settings.py file in your project directory and add the newly created application to the INSTALLED_APPS list. **
+create urls.py in your application dir
